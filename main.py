@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 
+# Especificar o encoding para evitar erro de decodificação
 caminho_arquivo = 'Sample - Superstore.csv'
 dados = pd.read_csv(caminho_arquivo, encoding='ISO-8859-1')
 
@@ -48,11 +49,14 @@ total_vendas_por_regiao.plot(kind='bar', color='skyblue')
 plt.title('Total de Vendas por Região')
 plt.xlabel('Região')
 plt.ylabel('Total de Vendas ($)')
+plt.xticks(rotation=45)  # Rotaciona os rótulos para melhor visualização
 plt.show()
 
 # Criar um gráfico de pizza para percentual de vendas por categoria
 total_vendas_por_categoria = dados.groupby('Category')['Sales'].sum()
-total_vendas_por_categoria.plot(kind='pie', autopct='%1.1f%%', startangle=90)
+total_vendas_por_categoria.plot(
+    kind='pie', autopct='%1.1f%%', startangle=90, colormap='Pastel1')
 
 plt.title('Percentual de Vendas por Categoria')
+plt.ylabel('')  # Remove o rótulo do eixo y para melhor visualização
 plt.show()

@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 caminho_arquivo = 'Sample - Superstore.csv'
-dados = pd.read_csv(caminho_arquivo)
+dados = pd.read_csv(caminho_arquivo, encoding='ISO-8859-1')
 
 print("Primeiras linhas do dataset:")
 print(dados.head())

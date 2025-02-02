@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 import pandas as pd
 
 caminho_arquivo = 'Sample - Superstore.csv'
@@ -40,3 +41,18 @@ print(total_vendas_por_regiao.round(2))
 media_lucro_por_subcategoria = dados.groupby('Sub-Category')['Profit'].mean()
 print("\nMédia de lucro por subcategoria:")
 print(media_lucro_por_subcategoria.round(2))
+
+# Criar um gráfico de barras para o total de vendas por região
+total_vendas_por_regiao.plot(kind='bar', color='skyblue')
+
+plt.title('Total de Vendas por Região')
+plt.xlabel('Região')
+plt.ylabel('Total de Vendas ($)')
+plt.show()
+
+# Criar um gráfico de pizza para percentual de vendas por categoria
+total_vendas_por_categoria = dados.groupby('Category')['Sales'].sum()
+total_vendas_por_categoria.plot(kind='pie', autopct='%1.1f%%', startangle=90)
+
+plt.title('Percentual de Vendas por Categoria')
+plt.show()

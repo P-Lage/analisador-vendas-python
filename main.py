@@ -30,3 +30,13 @@ total_do_produto_mais_vendido = total_vendas_por_produto.max()
 
 print(f"\nO produto mais vendido foi: {produto_mais_vendido} com $\
       {total_do_produto_mais_vendido:.2f} em vendas.")
+
+# Calcular o total de vendas por região
+total_vendas_por_regiao = dados.groupby('Region')['Sales'].sum()
+print("\nTotal de vendas por região:")
+print(total_vendas_por_regiao.round(2))
+
+# Calcular a média de lucro por subcategoria de produto
+media_lucro_por_subcategoria = dados.groupby('Sub-Category')['Profit'].mean()
+print("\nMédia de lucro por subcategoria:")
+print(media_lucro_por_subcategoria.round(2))
